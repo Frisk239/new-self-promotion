@@ -88,7 +88,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '' }) =>
             {project.tools.map((tool, index) => (
               <span
                 key={index}
-                className="px-3 py-1 bg-[#1a1f3a] border border-[#2a2e5a] rounded-full text-xs text-gray-300 hover:border-violet-500 hover:text-white transition-colors duration-200"
+                className="px-3 py-1 bg-[#1a1f3a] border border-[#2a2e5a] rounded-full text-xs text-gray-300 hover:border-violet-500 hover:text-white active:border-violet-400 active:text-violet-200 transition-colors duration-200 touch-manipulation min-h-[32px] inline-flex items-center"
               >
                 {tool}
               </span>

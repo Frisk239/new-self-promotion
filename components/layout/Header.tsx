@@ -50,8 +50,8 @@ const Header: React.FC = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#0d1224]/80 backdrop-blur-lg border-b border-[#2a2e5a]'
-            : 'bg-transparent'
+            ? 'bg-[#0d1224]/80 backdrop-blur-lg md:backdrop-blur-sm border-b border-[#2a2e5a]'
+            : 'bg-transparent md:bg-[#0d1224]/60 md:backdrop-blur-sm'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,9 +108,9 @@ const Header: React.FC = () => {
             {/* 移动端菜单按钮 */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-300 hover:text-white transition-colors duration-200"
+              className="md:hidden text-gray-300 hover:text-white active:text-white active:scale-95 transition-all duration-200 p-2 -m-2 touch-manipulation min-w-[48px] min-h-[48px] flex items-center justify-center"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
@@ -147,10 +147,10 @@ const Header: React.FC = () => {
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                      className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 active:scale-[0.98] touch-manipulation ${
                         isActiveLink(item.href)
                           ? 'bg-[#2a2e5a] text-white'
-                          : 'text-gray-300 hover:bg-[#1a1f3a] hover:text-white'
+                          : 'text-gray-300 hover:bg-[#1a1f3a] hover:text-white active:bg-[#1a1f3a] active:text-white'
                       }`}
                     >
                       {item.name}

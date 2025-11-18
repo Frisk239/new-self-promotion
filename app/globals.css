@@ -200,3 +200,139 @@ pre {
 .animate-pulse-glow {
   animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* ==================== MOBILE OPTIMIZATIONS ==================== */
+
+/* Mobile-First Touch Optimizations */
+@media (max-width: 768px) {
+  /* Core Mobile Variables */
+  :root {
+    --glow-spread-mobile: 40px;
+    --glow-blur-mobile: 20px;
+    --glow-opacity-mobile: 0.3;
+    --transition-mobile: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Touch Interaction Optimizations */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Allow text selection for content */
+  p, h1, h2, h3, h4, h5, h6, span {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  /* Scroll Performance */
+  html {
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Simplified Hover Effects for Mobile */
+  .hover-lift:hover {
+    transform: translateY(0);
+  }
+
+  .hover-glow:hover {
+    box-shadow: none;
+  }
+
+  /* Mobile-Active States */
+  .hover-lift:active {
+    transform: translateY(-2px);
+    transition: transform var(--transition-mobile);
+  }
+
+  .hover-glow:active {
+    box-shadow: 0 0 20px var(--accent-violet);
+    transition: box-shadow var(--transition-mobile);
+  }
+
+  /* Touch-Friendly Sizing */
+  button, a, .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Reduce motion for better performance */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Optimize backdrop-blur performance */
+  .backdrop-blur-lg {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  /* Simplified glow effects for performance */
+  .glow-card {
+    --glow-spread: 30px;
+    --glow-blur: 15px;
+    --glow-opacity: 0.2;
+  }
+
+  /* Mobile-specific cursor styles */
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  /* Optimize images for mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Reduce complex shadows on mobile */
+  .shadow-xl {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Touch device detection */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover effects on touch devices */
+  .group:hover .group-hover\:scale-105 {
+    transform: scale(1);
+  }
+
+  .group:hover .group-hover\:text-violet-200 {
+    color: inherit;
+  }
+
+  .group:hover .group-hover\:border-violet-500 {
+    border-color: inherit;
+  }
+
+  /* Enable active states for touch */
+  .group:active .group-active\:scale-105 {
+    transform: scale(1.05);
+  }
+
+  .group:active .group-active\:text-violet-200 {
+    color: rgb(196 181 253);
+  }
+
+  .group:active .group-active\:border-violet-500 {
+    border-color: rgb(139 92 246);
+  }
+}
+
+/* High DPI displays optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Crisper rendering for retina displays */
+  .glow-effect {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+}

@@ -56,21 +56,21 @@ const Skills: React.FC = () => {
             {duplicatedStack.map((tech, index) => (
               <div
                 key={`${tech.name}-${index}`}
-                className="mx-4 min-w-[140px] max-w-[140px] h-[140px] flex flex-col items-center justify-center group relative"
+                className="mx-4 min-w-[140px] max-w-[140px] h-[140px] flex flex-col items-center justify-center group relative active:scale-95 touch-manipulation cursor-pointer"
               >
                 {/* 卡片背景 */}
-                <div className="absolute inset-0 rounded-lg border border-[#1b2c68a0] bg-gradient-to-r from-[#0d1224] to-[#0a0d37] group-hover:border-violet-500 transition-all duration-500" />
+                <div className="absolute inset-0 rounded-lg border border-[#1b2c68a0] bg-gradient-to-r from-[#0d1224] to-[#0a0d37] group-hover:border-violet-500 active:border-violet-400 transition-all duration-500" />
 
                 {/* 光晕效果 */}
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-violet-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-violet-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 active:opacity-60 transition-opacity duration-500" />
 
                 <div className="relative z-10 text-center px-4 py-6">
                   {/* 技术图标 */}
-                  <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center text-violet-400 group-hover:text-violet-300 transition-colors duration-300">
+                  <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center text-violet-400 group-hover:text-violet-300 active:text-violet-200 transition-colors duration-300">
                     {getTechIcon(tech.name)}
                   </div>
                   {/* 技术名称 */}
-                  <span className="text-sm font-medium text-white group-hover:text-violet-200 transition-colors duration-300">
+                  <span className="text-sm font-medium text-white group-hover:text-violet-200 active:text-violet-100 transition-colors duration-300">
                     {tech.name}
                   </span>
                 </div>
