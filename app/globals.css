@@ -46,6 +46,13 @@
   --card-background: #ffffff;
   --border-color: #e5e7eb;
 
+  /* 新增层次色彩系统 - 统一浅米黄色设计 */
+  --card-warm: #fefdf8;      /* 主米黄色 - 用于组件框 */
+  --card-cream: #fefdf8;     /* 统一使用相同的米黄色 */
+  --accent-warm: #fef3e2;    /* 强调米黄色 */
+  --accent-soft: #fef9f3;    /* 柔和米黄色 */
+  --subtle-bg: #f9fafb;      /* 细微背景色 */
+
   /* Accent Colors - 日间模式专用配色 */
   --accent-green: #059669;
   --accent-pink: #be185d;
@@ -149,29 +156,37 @@
   background-color: var(--active-bg) !important;
 }
 
-/* 日间模式组件样式优化 */
+/* 日间模式组件样式优化 - 统一浅米黄色设计 */
 [data-theme="light"] .terminal-card {
-  background: var(--card-background);
+  background: var(--card-warm);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-card);
 }
 
 [data-theme="light"] .terminal-card::before {
-  background: var(--gradient-border);
+  background: linear-gradient(90deg, transparent, var(--accent-violet), transparent);
 }
 
 [data-theme="light"] .terminal-controls {
   border-bottom: 1px solid var(--border-color);
+  background: var(--accent-soft);
 }
 
 [data-theme="light"] code {
-  background: rgba(99, 102, 241, 0.08);
+  background: rgba(254, 253, 248, 0.6);
   color: var(--accent-violet);
 }
 
 [data-theme="light"] pre {
-  background: var(--card-background);
+  background: var(--card-warm);
   border: 1px solid var(--border-color);
+}
+
+/* 所有卡片组件统一使用浅米黄色 */
+[data-theme="light"] .card,
+[data-theme="light"] [class*="card"] {
+  background: var(--card-warm) !important;
+  border: 1px solid var(--border-color) !important;
 }
 
 /* 日间模式按钮优化 */
@@ -223,24 +238,24 @@
 
 /* Skills 组件专用日间模式样式 */
 [data-theme="light"] section.py-20.relative.overflow-hidden {
-  background: var(--background) !important;
+  background: var(--subtle-bg) !important;
 }
 
-/* 技术卡片背景渐变覆盖 */
+/* 技术卡片背景渐变覆盖 - 使用层次色彩 */
 [data-theme="light"] [class*="from-[#0d1224"],
 [data-theme="light"] [class*="to-[#0a0d37"] {
-  background: var(--card-background) !important;
+  background: var(--card-warm) !important;
 }
 
 [data-theme="light"] [class*="from-[#0d1224"] + [class*="to-[#0a0d37"] {
-  background: linear-gradient(135deg, var(--card-background) 0%, var(--background) 100%) !important;
+  background: linear-gradient(135deg, var(--card-warm) 0%, var(--card-cream) 100%) !important;
 }
 
-/* 技术卡片容器样式 */
+/* 技术卡片容器样式 - 统一浅米黄色 */
 [data-theme="light"] [class*="min-w-[140px]"],
 [data-theme="light"] [class*="max-w-[140px]"],
 [data-theme="light"] [class*="h-[140px]"] {
-  background: var(--card-background) !important;
+  background: var(--card-warm) !important;
   border: 1px solid var(--border-color) !important;
 }
 
@@ -249,10 +264,16 @@
   border-color: var(--border-color) !important;
 }
 
-/* 光晕效果覆盖 */
+/* 光晕效果覆盖 - 使用温暖色调 */
 [data-theme="light"] [class*="from-violet-600/20"],
 [data-theme="light"] [class*="to-pink-600/20"] {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(190, 24, 93, 0.08) 100%) !important;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(254, 243, 226, 0.4) 100%) !important;
+}
+
+/* 悬停时添加温暖光晕 */
+[data-theme="light"] div[class*="group"]:hover [class*="from-violet-600/20"],
+[data-theme="light"] div[class*="group"]:hover [class*="to-pink-600/20"] {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(254, 243, 226, 0.6) 100%) !important;
 }
 
 /* 文字颜色覆盖 - 层次化处理 */
@@ -294,10 +315,10 @@
   color: var(--text-primary) !important;
 }
 
-/* 技术栈卡片样式 */
+/* 技术栈卡片样式 - 统一浅米黄色 */
 [data-theme="light"] [class*="tech-card"],
 [data-theme="light"] [class*="technology-card"] {
-  background: var(--card-background) !important;
+  background: var(--card-warm) !important;
   border: 1px solid var(--border-color) !important;
   color: var(--text-primary) !important;
 }
@@ -305,6 +326,60 @@
 [data-theme="light"] [class*="tech-card"] *,
 [data-theme="light"] [class*="technology-card"] * {
   color: var(--text-primary) !important;
+}
+
+/* 项目卡片 - 统一浅米黄色 */
+[data-theme="light"] [class*="project-card"],
+[data-theme="light"] [class*="portfolio-card"] {
+  background: var(--card-warm) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* 联系方式卡片 - 浅米黄色 */
+[data-theme="light"] [class*="contact-card"],
+[data-theme="light"] [class*="contact-item"],
+[data-theme="light"] [class*="social-link"],
+[data-theme="light"] [class*="contact-link"] {
+  background: var(--card-warm) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* 关于页面经历卡片 - 浅米黄色 */
+[data-theme="light"] [class*="experience-card"],
+[data-theme="light"] [class*="education-card"],
+[data-theme="light"] [class*="timeline-card"],
+[data-theme="light"] [class*="info-card"] {
+  background: var(--card-warm) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* 通用信息框组件 - 浅米黄色 */
+[data-theme="light"] [class*="info-box"],
+[data-theme="light"] [class*="detail-card"],
+[data-theme="light"] [class*="content-card"] {
+  background: var(--card-warm) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* 导航栏和头部组件 - 保持白色背景 */
+[data-theme="light"] header,
+[data-theme="light"] nav {
+  background: var(--card-background) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Hero 区域 - 统一浅米黄色设计 */
+[data-theme="light"] [class*="hero"],
+[data-theme="light"] [class*="hero-section"] {
+  background: var(--background) !important;
+}
+
+/* Hero 区域内的组件使用浅米黄色 */
+[data-theme="light"] [class*="hero"] .card,
+[data-theme="light"] [class*="hero-section"] .card,
+[data-theme="light"] [class*="hero"] [class*="card"],
+[data-theme="light"] [class*="hero-section"] [class*="card"] {
+  background: var(--card-warm) !important;
 }
 
 /* 轮播指示器 */
