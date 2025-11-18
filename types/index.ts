@@ -37,8 +37,6 @@ export interface Project {
   demoUrl?: string;
   category: 'data-analysis' | 'web-development' | 'ai-application' | 'machine-learning' | 'miniprogram';
   featured: boolean;
-  startDate: string;
-  endDate?: string;
 }
 
 // 经历类型
