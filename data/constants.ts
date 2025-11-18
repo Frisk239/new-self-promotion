@@ -6,7 +6,7 @@ export const personalInfo: PersonalInfo = {
   title: '全栈开发工程师 & AI应用开发者',
   description: '计算机科学与技术专业学生，专注于数据分析、Web开发、AI应用和机器学习',
   avatar: '/static/touxiang.jpg',
-  email: '2691218460@qq.com',
+  email: 'a2691218460@outlook.com',
   wechat: 'a2691218460',
   qq: '2691218460',
   location: '中国',
@@ -67,7 +67,7 @@ export const socialLinks: SocialLink[] = [
     id: 'email',
     name: '邮箱',
     icon: 'Mail',
-    url: 'mailto:2691218460@qq.com',
+    url: 'mailto:a2691218460@outlook.com',
     color: '#16f2b3'
   },
   {

@@ -1,43 +1,13 @@
 'use client';
 
-import { useState } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import TerminalCard from '@/components/ui/TerminalCard';
 import GlowCard from '@/components/ui/GlowCard';
-import Button from '@/components/ui/Button';
 import { personalInfo, socialLinks } from '@/data/constants';
-import { Mail, MessageCircle, MessageSquare, Github, Send, MapPin } from 'lucide-react';
+import { Mail, MessageCircle, MessageSquare, Github, MapPin } from 'lucide-react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // 这里可以添加表单提交逻辑
-    console.log('表单数据:', formData);
-    alert('感谢您的留言！我会尽快回复您。');
-    // 重置表单
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
-  };
 
   const getSocialIcon = (iconName: string) => {
     switch (iconName) {
@@ -73,174 +43,108 @@ export default function Contact() {
 
         {/* 联系信息 */}
         <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* 左侧：联系表单 */}
-              <div>
-                <h2 className="text-2xl font-semibold text-white mb-8">
-                  发送消息
-                </h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                联系方式
+              </h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                欢迎通过以下方式联系我
+              </p>
+            </div>
 
-                <TerminalCard title="contact-form.js" glowColor="violet">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <label className="block text-gray-300 text-sm mb-2">
-                        姓名
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-[#1a1f3a] border border-[#2a2e5a] rounded-lg text-white focus:outline-none focus:border-violet-500 transition-colors duration-200"
-                        placeholder="您的姓名"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-gray-300 text-sm mb-2">
-                        邮箱
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-[#1a1f3a] border border-[#2a2e5a] rounded-lg text-white focus:outline-none focus:border-violet-500 transition-colors duration-200"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-gray-300 text-sm mb-2">
-                        主题
-                      </label>
-                      <input
-                        type="text"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-[#1a1f3a] border border-[#2a2e5a] rounded-lg text-white focus:outline-none focus:border-violet-500 transition-colors duration-200"
-                        placeholder="消息主题"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-gray-300 text-sm mb-2">
-                        消息内容
-                      </label>
-                      <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows={6}
-                        className="w-full px-4 py-3 bg-[#1a1f3a] border border-[#2a2e5a] rounded-lg text-white focus:outline-none focus:border-violet-500 transition-colors duration-200 resize-none"
-                        placeholder="您的消息..."
-                      />
-                    </div>
-
-                    <Button type="submit" variant="primary" size="lg" className="w-full">
-                      <Send size={16} className="mr-2" />
-                      发送消息
-                    </Button>
-                  </form>
-                </TerminalCard>
-              </div>
-
-              {/* 右侧：联系方式 */}
-              <div className="space-y-8">
-                <div>
-                  <h2 className="text-2xl font-semibold text-white mb-8">
-                    联系方式
-                  </h2>
-
-                  <div className="space-y-6">
-                    <GlowCard glowColor="green" className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-lg flex items-center justify-center">
-                          <Mail size={20} className="text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-white font-semibold mb-1">邮箱</h3>
-                          <a href="mailto:2691218460@qq.com" className="text-gray-300 hover:text-white transition-colors duration-200">
-                            2691218460@qq.com
-                          </a>
-                        </div>
-                      </div>
-                    </GlowCard>
-
-                    <GlowCard glowColor="pink" className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-pink-400 to-red-500 rounded-lg flex items-center justify-center">
-                          <MessageCircle size={20} className="text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-white font-semibold mb-1">微信</h3>
-                          <p className="text-gray-300">a2691218460</p>
-                        </div>
-                      </div>
-                    </GlowCard>
-
-                    <GlowCard glowColor="blue" className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg flex items-center justify-center">
-                          <MessageSquare size={20} className="text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-white font-semibold mb-1">QQ</h3>
-                          <a href="tencent://message/?uin=2691218460" className="text-gray-300 hover:text-white transition-colors duration-200">
-                            2691218460
-                          </a>
-                        </div>
-                      </div>
-                    </GlowCard>
-
-                    <GlowCard glowColor="violet" className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-violet-400 to-purple-500 rounded-lg flex items-center justify-center">
-                          <MapPin size={20} className="text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-white font-semibold mb-1">位置</h3>
-                          <p className="text-gray-300">{personalInfo.location}</p>
-                        </div>
-                      </div>
-                    </GlowCard>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <GlowCard glowColor="green" className="p-6 hover:scale-[1.02] transition-transform duration-300">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-lg flex items-center justify-center">
+                    <Mail size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold mb-1">邮箱</h3>
+                    <p className="text-gray-300">{personalInfo.email}</p>
                   </div>
                 </div>
+              </GlowCard>
 
-                {/* 社交媒体 */}
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-6">
-                    社交媒体
-                  </h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    {socialLinks.map((link) => (
-                      <a
-                        key={link.id}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group"
-                      >
-                        <GlowCard glowColor="violet" className="p-4 hover:scale-105 transition-transform duration-300">
-                          <div className="flex items-center space-x-3">
-                            <div className="text-white" style={{ color: link.color }}>
-                              {getSocialIcon(link.icon)}
-                            </div>
-                            <span className="text-gray-300 group-hover:text-white transition-colors duration-200">
-                              {link.name}
-                            </span>
+              <GlowCard glowColor="pink" className="p-6 hover:scale-[1.02] transition-transform duration-300">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-pink-400 to-red-500 rounded-lg flex items-center justify-center">
+                    <MessageCircle size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold mb-1">微信</h3>
+                    <p className="text-gray-300">{personalInfo.wechat}</p>
+                  </div>
+                </div>
+              </GlowCard>
+
+              <GlowCard glowColor="blue" className="p-6 hover:scale-[1.02] transition-transform duration-300">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg flex items-center justify-center">
+                    <MessageSquare size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold mb-1">QQ</h3>
+                    <p className="text-gray-300">{personalInfo.qq}</p>
+                  </div>
+                </div>
+              </GlowCard>
+
+              <GlowCard glowColor="violet" className="p-6 hover:scale-[1.02] transition-transform duration-300">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-violet-400 to-purple-500 rounded-lg flex items-center justify-center">
+                    <MapPin size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold mb-1">位置</h3>
+                    <p className="text-gray-300">{personalInfo.location}</p>
+                  </div>
+                </div>
+              </GlowCard>
+            </div>
+
+            {/* 社交媒体 */}
+            <div className="mt-16 text-center">
+              <h3 className="text-xl font-semibold text-white mb-8">
+                社交媒体
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {socialLinks.map((link) => {
+                  const isGithub = link.id === 'github';
+                  return isGithub ? (
+                    <a
+                      key={link.id}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group"
+                    >
+                      <GlowCard glowColor="violet" className="p-4 hover:scale-105 transition-transform duration-300">
+                        <div className="flex flex-col items-center space-y-3">
+                          <div className="text-white" style={{ color: link.color }}>
+                            {getSocialIcon(link.icon)}
                           </div>
-                        </GlowCard>
-                      </a>
-                    ))}
-                  </div>
-                </div>
+                          <span className="text-gray-300 group-hover:text-white transition-colors duration-200 text-sm">
+                            {link.name}
+                          </span>
+                        </div>
+                      </GlowCard>
+                    </a>
+                  ) : (
+                    <div key={link.id}>
+                      <GlowCard glowColor="violet" className="p-4 hover:scale-105 transition-transform duration-300">
+                        <div className="flex flex-col items-center space-y-3">
+                          <div className="text-white" style={{ color: link.color }}>
+                            {getSocialIcon(link.icon)}
+                          </div>
+                          <span className="text-gray-300 text-sm">
+                            {link.name}
+                          </span>
+                        </div>
+                      </GlowCard>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
