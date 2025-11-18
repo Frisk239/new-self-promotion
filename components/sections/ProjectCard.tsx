@@ -15,13 +15,6 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '' }) => {
   const router = useRouter();
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('zh-CN', {
-      year: 'numeric',
-      month: 'long'
-    });
-  };
 
   const handleCardClick = () => {
     router.push(`/projects/${project.id}`);
@@ -49,11 +42,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '' }) =>
               <span className="text-pink-400">role:</span>
               <span className="text-green-400"> "{project.role}",</span>
             </div>
-            <div className="text-gray-400">
-              <span className="text-pink-400">period:</span>
-              <span className="text-green-400"> "{formatDate(project.startDate)} - {project.endDate ? formatDate(project.endDate) : '进行中'}",</span>
-            </div>
-          </div>
+                      </div>
           <span className="text-gray-400">{`};`}</span>
         </div>
 

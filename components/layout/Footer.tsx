@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
               计算机科学与技术专业学生，专注于数据分析、Web开发、AI应用和机器学习。
             </p>
             <div className="flex space-x-4">
-              {socialLinks.map((link) => (
+              {socialLinks.filter(link => link.id === 'github').map((link) => (
                 <a
                   key={link.id}
                   href={link.url}
@@ -49,6 +49,16 @@ const Footer: React.FC = () => {
                 >
                   {getSocialIcon(link.icon)}
                 </a>
+              ))}
+              {socialLinks.filter(link => link.id !== 'github').map((link) => (
+                <div
+                  key={link.id}
+                  className="text-gray-400"
+                  style={{ color: link.color }}
+                  aria-label={link.name}
+                >
+                  {getSocialIcon(link.icon)}
+                </div>
               ))}
             </div>
           </div>
@@ -74,13 +84,10 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <h3 className="text-white font-semibold mb-4">联系方式</h3>
             <div className="space-y-2">
-              <a
-                href="mailto:2691218460@qq.com"
-                className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-              >
+              <div className="flex items-center space-x-2 text-gray-400 text-sm">
                 <Mail size={16} />
                 <span>2691218460@qq.com</span>
-              </a>
+              </div>
               <div className="flex items-center space-x-2 text-gray-400 text-sm">
                 <MessageCircle size={16} />
                 <span>微信: a2691218460</span>

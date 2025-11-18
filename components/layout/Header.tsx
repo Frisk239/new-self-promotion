@@ -88,7 +88,7 @@ const Header: React.FC = () => {
 
             {/* 社交链接 - 桌面端 */}
             <div className="hidden md:flex items-center space-x-4">
-              {socialLinks.slice(0, 3).map((link) => (
+              {socialLinks.filter(link => link.id === 'github').map((link) => (
                 <a
                   key={link.id}
                   href={link.url}
@@ -162,7 +162,7 @@ const Header: React.FC = () => {
               {/* 社交链接 */}
               <div className="p-4 border-t border-[#2a2e5a]">
                 <div className="flex justify-center space-x-4">
-                  {socialLinks.map((link) => (
+                  {socialLinks.filter(link => link.id === 'github').map((link) => (
                     <a
                       key={link.id}
                       href={link.url}

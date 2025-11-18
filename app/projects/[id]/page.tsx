@@ -10,7 +10,7 @@ import TerminalCard from '@/components/ui/TerminalCard';
 import Button from '@/components/ui/Button';
 import ImageCarousel from '@/components/ui/ImageCarousel';
 import VideoPlayer from '@/components/ui/VideoPlayer';
-import { ArrowLeft, Calendar, User, ExternalLink, Github, Play } from 'lucide-react';
+import { ArrowLeft, User, ExternalLink, Github, Play } from 'lucide-react';
 
 export default function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
@@ -21,14 +21,6 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
   if (!project) {
     notFound();
   }
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('zh-CN', {
-      year: 'numeric',
-      month: 'long'
-    });
-  };
 
   return (
     <div className="min-h-screen bg-[#0d1224]">
@@ -64,17 +56,9 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
                     </p>
 
                     {/* 项目元信息 */}
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="flex items-center gap-2 text-gray-300">
-                        <User size={16} className="text-violet-400" />
-                        <span>{project.role}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-gray-300">
-                        <Calendar size={16} className="text-pink-400" />
-                        <span>
-                          {formatDate(project.startDate)} - {project.endDate ? formatDate(project.endDate) : '进行中'}
-                        </span>
-                      </div>
+                    <div className="flex items-center gap-2 text-gray-300 mb-6">
+                      <User size={16} className="text-violet-400" />
+                      <span>{project.role}</span>
                     </div>
 
                     {/* 操作按钮 */}
@@ -139,17 +123,6 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
               <TerminalCard title="screenshots.js" glowColor="blue">
                 <div className="space-y-6">
                   <h3 className="text-xl font-semibold text-white">项目截图</h3>
-                  <div className="text-sm text-gray-400 mb-4">
-                    <span>const screenshots = [</span>
-                    <div className="ml-4">
-                      {project.screenshots.map((screenshot, index) => (
-                        <div key={index} className="text-green-400">
-                          "{screenshot.split('/').pop()}"{index < project.screenshots.length - 1 ? ',' : ''}
-                        </div>
-                      ))}
-                    </div>
-                    <span>];</span>
-                  </div>
                   <ImageCarousel images={project.screenshots} />
                 </div>
               </TerminalCard>
@@ -167,19 +140,6 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
                     <Play size={20} className="text-pink-400" />
                     项目演示视频
                   </h3>
-                  <div className="text-sm text-gray-400 mb-4">
-                    <span>const videos = [</span>
-                    <div className="ml-4">
-                      {project.videos.map((video, index) => (
-                        <div key={index} className="text-green-400">
-                          "{video.split('/').pop()}"{index < project.videos.length - 1 ? ',' : ''}
-                        </div>
-                      ))}
-                    </div>
-                    <span>];</span>
-                  </div>
-
-                  {/* 视频播放器 */}
                   <div className="space-y-4">
                     {project.videos.map((video, index) => (
                       <div key={index}>
