@@ -123,7 +123,7 @@
 }
 
 [data-theme="light"] [class*="bg-[#101123"] {
-  background-color: var(--card-background) !important;
+  background-color: var(--card-warm) !important;
 }
 
 [data-theme="light"] [class*="bg-[#1a1f3a"] {
@@ -134,8 +134,36 @@
   background-color: var(--border-color) !important;
 }
 
+
 /* 边框色更新 */
 [data-theme="light"] [class*="border-[#2a2e5a"] {
+  border-color: var(--border-color) !important;
+}
+
+/* 保持联系页面的主要联系信息为白色背景 */
+[data-theme="light"] [class*="grid-cols-1"][class*="grid-cols-2"] > div[style*="--glow-color"] {
+  background-color: var(--card-background) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* 保持社交媒体区域为白色背景 */
+[data-theme="light"] [class*="grid-cols-2"][class*="grid-cols-4"] > div[style*="--glow-color"],
+[data-theme="light"] [class*="grid-cols-2"][class*="grid-cols-4"] div[style*="--glow-color"] {
+  background-color: var(--card-background) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* 专门针对关于页面的教育经历和实习经历使用浅米黄色 */
+[data-theme="light"] .space-y-8 > div[style*="--glow-color"]:first-of-type,
+[data-theme="light"] .space-y-8 > div[style*="--glow-color"]:last-of-type {
+  background-color: var(--card-warm) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* 或者更精确的选择器 */
+[data-theme="light"] .space-y-8 div[style*="--glow-color"]:has(🎓),
+[data-theme="light"] .space-y-8 div[style*="--glow-color"]:has(💼) {
+  background-color: var(--card-warm) !important;
   border-color: var(--border-color) !important;
 }
 
