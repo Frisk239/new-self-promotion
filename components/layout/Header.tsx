@@ -7,6 +7,7 @@ import { Menu, X, Github, Mail, MessageCircle, MessageSquare } from 'lucide-reac
 import { navigationMenu, socialLinks } from '@/data/constants';
 import GlowCard from '@/components/ui/GlowCard';
 import Button from '@/components/ui/Button';
+import ThemeToggle from '@/components/ui/ThemeToggle';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -100,6 +101,7 @@ const Header: React.FC = () => {
                   {getSocialIcon(link.icon)}
                 </a>
               ))}
+              <ThemeToggle />
               <Button variant="primary" size="sm">
                 联系我
               </Button>
@@ -161,7 +163,7 @@ const Header: React.FC = () => {
 
               {/* 社交链接 */}
               <div className="p-4 border-t border-[#2a2e5a]">
-                <div className="flex justify-center space-x-4">
+                <div className="flex justify-center space-x-4 mb-4">
                   {socialLinks.filter(link => link.id === 'github').map((link) => (
                     <a
                       key={link.id}
@@ -174,6 +176,7 @@ const Header: React.FC = () => {
                       {getSocialIcon(link.icon)}
                     </a>
                   ))}
+                  <ThemeToggle />
                 </div>
                 <div className="mt-4">
                   <Button variant="primary" size="sm" className="w-full">
