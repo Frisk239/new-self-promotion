@@ -4,6 +4,7 @@ import GlowCard from '@/components/ui/GlowCard';
 import TerminalCard from '@/components/ui/TerminalCard';
 import Button from '@/components/ui/Button';
 import CodeShowcase from '@/components/ui/CodeShowcase';
+import { TypewriterText } from '@/components/ui/TypewriterText';
 import Skills from '@/components/sections/Skills';
 import Projects from '@/components/sections/Projects';
 import Link from 'next/link';
@@ -21,19 +22,26 @@ export default function Home() {
               {/* 左侧：欢迎文字 */}
               <div className="order-2 lg:order-1 flex flex-col items-start justify-center space-y-6">
                 <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-                  你好，<br />
-                  这是{' '}
-                  <span className="text-pink-500">余磊</span>
-                  {`，我是一名专业的`}
-                  <br />
-                  <span className="text-[#16f2b3]">全栈开发工程师 & AI应用开发者</span>
-                  {'。'}
+                  <TypewriterText
+                    text="你好，这是 余磊，我是一名专业的全栈开发工程师 & AI应用开发者。"
+                    delay={500}
+                    charDelay={0.06}
+                    showCursor={true}
+                    customHighlights={[
+                      { word: '余磊', color: 'text-pink-500' },
+                      { word: '全栈开发工程师', color: 'text-[#16f2b3]' },
+                      { word: 'AI应用开发者', color: 'text-[#16f2b3]' }
+                    ]}
+                  />
                 </h1>
 
-                <p className="text-lg text-gray-300 lg:text-xl leading-relaxed">
-                  计算机科学与技术专业学生，专注于数据分析、Web开发、AI应用和机器学习。
-                  我热爱探索新技术，致力于通过创新的解决方案来解决实际问题。
-                </p>
+                <TypewriterText
+                  className="text-lg text-gray-300 lg:text-xl leading-relaxed"
+                  text="计算机科学与技术专业学生，专注于数据分析、Web开发、AI应用和机器学习。我热爱探索新技术，致力于通过创新的解决方案来解决实际问题。"
+                  delay={3500}
+                  charDelay={0.03}
+                  showCursor={true}
+                />
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Link href="/projects">

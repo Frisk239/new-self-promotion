@@ -3,6 +3,7 @@ import Footer from '@/components/layout/Footer';
 import TerminalCard from '@/components/ui/TerminalCard';
 import GlowCard from '@/components/ui/GlowCard';
 import ProfileImage from '@/components/ui/ProfileImage';
+import { TypewriterText } from '@/components/ui/TypewriterText';
 import { personalInfo } from '@/data/constants';
 
 export default function About() {
@@ -34,14 +35,20 @@ export default function About() {
                 </p>
 
                 <div className="text-gray-300 space-y-4 text-lg leading-relaxed">
-                  <p>
-                    作为计算机科学与技术专业的学生，我对技术充满热情，特别是在全栈开发、数据分析和AI应用领域。
-                    我相信技术的力量可以改变世界，致力于通过创新的技术解决方案来解决实际问题。
-                  </p>
-                  <p>
-                    在学习过程中，我不仅掌握了扎实的理论基础，更通过实际项目积累了丰富的开发经验。
-                    从数据分析到Web应用开发，从机器学习模型应用到AI Agent智能体搭建，我不断挑战自己，拓展技术边界。
-                  </p>
+                  <TypewriterText
+                    className="text-lg leading-relaxed"
+                    text="作为计算机科学与技术专业的学生，我对技术充满热情，特别是在全栈开发、数据分析和AI应用领域。我相信技术的力量可以改变世界，致力于通过创新的技术解决方案来解决实际问题。"
+                    delay={800}
+                    charDelay={0.03}
+                    showCursor={true}
+                  />
+                  <TypewriterText
+                    className="text-lg leading-relaxed"
+                    text="在学习过程中，我不仅掌握了扎实的理论基础，更通过实际项目积累了丰富的开发经验。从数据分析到Web应用开发，从机器学习模型应用到AI Agent智能体搭建，我不断挑战自己，拓展技术边界。"
+                    delay={6500}
+                    charDelay={0.03}
+                    showCursor={true}
+                  />
                 </div>
 
                 {/* 核心技能 */}
