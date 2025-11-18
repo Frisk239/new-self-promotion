@@ -3,9 +3,7 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 import { techStack } from '@/data/constants';
-import GlowCard from '@/components/ui/GlowCard';
 import {
-  Code2,
   Database,
   Cloud,
   GitBranch,
@@ -13,40 +11,16 @@ import {
   Terminal,
   Palette,
   Server,
-  Cpu,
   Brain,
   Flame,
-  Layers,
   Globe,
   Zap,
   Code,
   FileCode,
-  FileText,
-  Coffee,
-  TerminalSquare,
   BarChart3,
-  Bot,
   BrainCircuit,
   Smartphone,
-  Mail,
-  MessageCircle,
-  MessageSquare,
-  Link,
-  Github,
-  Wrench,
-  Shield,
-  Briefcase,
-  Users,
-  CheckCircle,
-  XCircle,
-  TrendingUp,
-  Download,
-  ExternalLink,
-  Sparkles,
-  CpuChip,
-  Settings,
-  Monitor,
-  Window
+  Sparkles
 } from 'lucide-react';
 
 const Skills: React.FC = () => {
@@ -99,27 +73,10 @@ const Skills: React.FC = () => {
                   <span className="text-sm font-medium text-white group-hover:text-violet-200 transition-colors duration-300">
                     {tech.name}
                   </span>
-                  {/* 技术分类 */}
-                  <span className="text-xs text-gray-400 mt-1 block">
-                    {tech.category}
-                  </span>
                 </div>
               </div>
             ))}
           </Marquee>
-        </div>
-
-        {/* 分类标签 */}
-        <div className="flex flex-wrap justify-center gap-4 mt-16">
-          {getSkillCategories().map((category) => (
-            <div
-              key={category.name}
-              className="px-6 py-3 bg-[#1a1f3a] border border-[#2a2e5a] rounded-full text-gray-300 hover:border-violet-500 hover:text-white transition-all duration-300"
-            >
-              <span className="text-sm font-medium">{category.name}</span>
-              <span className="ml-2 text-xs text-gray-400">({category.count})</span>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -214,13 +171,5 @@ const getTechIcon = (techName: string) => {
       return <Code size={32} />;             // 默认代码图标
   }
 };
-
-// 获取技能分类
-const getSkillCategories = () => [
-  { name: '前端开发', count: 8 },
-  { name: '后端开发', count: 6 },
-  { name: '数据科学', count: 6 },
-  { name: '开发工具', count: 4 }
-];
 
 export default Skills;
