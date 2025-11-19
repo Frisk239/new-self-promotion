@@ -4,6 +4,8 @@ import TerminalCard from '@/components/ui/TerminalCard';
 import GlowCard from '@/components/ui/GlowCard';
 import ProfileImage from '@/components/ui/ProfileImage';
 import { TypewriterText } from '@/components/ui/TypewriterText';
+import { LottieStudy } from '@/components/ui/LottieStudy';
+import { LottieCode } from '@/components/ui/LottieCode';
 import { personalInfo } from '@/data/constants';
 
 export default function About() {
@@ -103,13 +105,30 @@ export default function About() {
               </div>
 
               {/* 右侧：头像展示 */}
-              <div className="flex justify-center order-1 lg:order-2">
+              <div className="flex flex-col items-center order-1 lg:order-2 space-y-12 -mt-12">
                 <ProfileImage
                   src="/static/touxiang.jpg"
                   alt="余磊 - 个人头像"
                   size="lg"
                   className="mx-auto"
                 />
+
+                {/* Code Lottie 动画 */}
+                <div className="relative mt-8">
+                  <LottieCode
+                    width={320}
+                    height={320}
+                    className="relative z-10"
+                  />
+                  {/* 装饰性背景 */}
+                  <div className="absolute inset-0 flex items-center justify-center -z-10">
+                    <div className="w-96 h-96 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-full animate-pulse" />
+                  </div>
+                  {/* 额外的装饰元素 */}
+                  <div className="absolute -top-4 -left-4 w-5 h-5 bg-blue-500/40 rounded-full animate-pulse" />
+                  <div className="absolute -bottom-4 -right-4 w-4 h-4 bg-cyan-500/40 rounded-full animate-bounce" />
+                  <div className="absolute top-1/4 -right-8 w-3 h-3 bg-violet-500/30 rounded-full animate-ping" />
+                </div>
               </div>
             </div>
           </div>
@@ -128,27 +147,28 @@ export default function About() {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* 左侧：动画装饰 */}
+              {/* 左侧：Lottie 学习动画 */}
               <div className="relative hidden lg:block">
-                <div className="relative">
-                  {/* 背景动画圆圈 */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-64 h-64 bg-gradient-to-r from-violet-600/20 to-pink-600/20 rounded-full animate-pulse" />
-                    <div className="absolute w-48 h-48 bg-gradient-to-r from-violet-600/10 to-pink-600/10 rounded-full animate-ping" />
-                    <div className="absolute w-32 h-32 bg-gradient-to-r from-violet-600/5 to-pink-600/5 rounded-full" />
-                  </div>
-
-                  {/* 中央图标 */}
-                  <div className="relative flex items-center justify-center h-96">
-                    <div className="w-16 h-16 bg-gradient-to-r from-violet-600 to-pink-600 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-xl">📚</span>
+                <div className="flex items-center justify-center h-96">
+                  <div className="relative">
+                    {/* 背景装饰圆圈 */}
+                    <div className="absolute inset-0 flex items-center justify-center -z-10">
+                      <div className="w-80 h-80 bg-gradient-to-r from-violet-600/10 to-pink-600/10 rounded-full animate-pulse" />
+                      <div className="absolute w-60 h-60 bg-gradient-to-r from-violet-600/5 to-pink-600/5 rounded-full" />
                     </div>
-                  </div>
 
-                  {/* 装饰性元素 */}
-                  <div className="absolute top-0 left-0 w-8 h-8 bg-violet-500/30 rounded-full animate-bounce" />
-                  <div className="absolute bottom-0 right-0 w-6 h-6 bg-pink-500/30 rounded-full animate-ping" />
-                  <div className="absolute top-1/4 right-1/4 w-4 h-4 bg-blue-500/30 rounded-full animate-pulse" />
+                    {/* Lottie Study 动画 */}
+                    <LottieStudy
+                      width={280}
+                      height={280}
+                      className="relative z-10"
+                    />
+
+                    {/* 装饰性元素 */}
+                    <div className="absolute top-0 -left-4 w-6 h-6 bg-violet-500/40 rounded-full animate-bounce" />
+                    <div className="absolute bottom-0 -right-4 w-5 h-5 bg-pink-500/40 rounded-full animate-ping" />
+                    <div className="absolute -top-4 right-1/4 w-4 h-4 bg-blue-500/30 rounded-full animate-pulse" />
+                  </div>
                 </div>
               </div>
 
