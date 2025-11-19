@@ -102,9 +102,6 @@ const Header: React.FC = () => {
                 </a>
               ))}
               <ThemeToggle />
-              <Button variant="primary" size="sm">
-                联系我
-              </Button>
             </div>
 
             {/* 移动端菜单按钮 */}
@@ -131,14 +128,8 @@ const Header: React.FC = () => {
           <div className="absolute top-0 right-0 h-full w-64 bg-[#101123] border-l border-[#2a2e5a]">
             <div className="flex flex-col h-full">
               {/* 菜单头部 */}
-              <div className="flex items-center justify-between p-4 border-b border-[#2a2e5a]">
+              <div className="flex items-center p-4 border-b border-[#2a2e5a]">
                 <span className="text-white font-semibold text-lg">菜单</span>
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  <X size={20} />
-                </button>
               </div>
 
               {/* 导航链接 */}
@@ -163,7 +154,7 @@ const Header: React.FC = () => {
 
               {/* 社交链接 */}
               <div className="p-4 border-t border-[#2a2e5a]">
-                <div className="flex justify-center space-x-4 mb-4">
+                <div className="flex justify-center space-x-4">
                   {socialLinks.filter(link => link.id === 'github').map((link) => (
                     <a
                       key={link.id}
@@ -177,11 +168,6 @@ const Header: React.FC = () => {
                     </a>
                   ))}
                   <ThemeToggle />
-                </div>
-                <div className="mt-4">
-                  <Button variant="primary" size="sm" className="w-full">
-                    联系我
-                  </Button>
                 </div>
               </div>
             </div>
