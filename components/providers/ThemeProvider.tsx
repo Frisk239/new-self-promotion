@@ -4,9 +4,9 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { ThemeProvider as NextThemeProvider, useTheme as useNextTheme } from 'next-themes';
 
 interface ThemeContextType {
-  theme: string;
+  theme: string | undefined;
   setTheme: (theme: string) => void;
-  resolvedTheme: string;
+  resolvedTheme: string | undefined;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
