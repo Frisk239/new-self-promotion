@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import ProjectCard from '@/components/sections/ProjectCard';
 import TerminalCard from '@/components/ui/TerminalCard';
 import Button from '@/components/ui/Button';
+import { LottieCoding } from '@/components/ui/LottieCoding';
 import { projects, getProjectsByCategory } from '@/data/projects';
 import { projectCategories } from '@/data/constants';
 import { Search, Filter } from 'lucide-react';
@@ -46,6 +47,23 @@ export default function Projects() {
             <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
               我的技术作品集，涵盖数据分析、Web开发、AI应用和机器学习等多个领域
             </p>
+
+            {/* Coding Lottie 动画 */}
+            <div className="relative flex justify-center mb-8">
+              <LottieCoding
+                width={200}
+                height={200}
+                className="relative z-10"
+              />
+              {/* 装饰性背景 */}
+              <div className="absolute inset-0 flex items-center justify-center -z-10">
+                <div className="w-72 h-72 bg-gradient-to-r from-cyan-600/15 to-blue-600/15 rounded-full animate-pulse" />
+              </div>
+              {/* 装饰性元素 */}
+              <div className="absolute top-0 -left-3 w-3 h-3 bg-cyan-500/50 rounded-full animate-pulse" />
+              <div className="absolute bottom-0 -right-3 w-3 h-3 bg-blue-500/50 rounded-full animate-bounce" />
+              <div className="absolute -top-2 right-1/4 w-2 h-2 bg-teal-500/40 rounded-full animate-ping" />
+            </div>
 
             {/* 项目统计 */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">

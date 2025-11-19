@@ -6,6 +6,7 @@ import ProfileImage from '@/components/ui/ProfileImage';
 import { TypewriterText } from '@/components/ui/TypewriterText';
 import { LottieStudy } from '@/components/ui/LottieStudy';
 import { LottieCode } from '@/components/ui/LottieCode';
+import { GraduationCap, Briefcase } from 'lucide-react';
 import { personalInfo } from '@/data/constants';
 
 export default function About() {
@@ -178,7 +179,7 @@ export default function About() {
                   <div className="p-6 lg:p-8">
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-violet-600 to-violet-700 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                        🎓
+                        <GraduationCap size={24} />
                       </div>
                       <div className="flex-1">
                         <div className="mb-2">
@@ -190,7 +191,7 @@ export default function About() {
                           计算机科学与技术（中英合办）
                         </h3>
                         <p className="text-gray-300 mb-2">
-                          计算机与网络空间安全学院
+                          福建师范大学，计算机与网络空间安全学院
                         </p>
                         <div className="flex items-center text-sm text-gray-400">
                           <span className="bg-[#1a1f3a] px-2 py-1 rounded-full">
@@ -206,7 +207,7 @@ export default function About() {
                   <div className="p-6 lg:p-8">
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-pink-600 to-pink-700 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                        💼
+                        <Briefcase size={24} />
                       </div>
                       <div className="flex-1">
                         <div className="mb-2">

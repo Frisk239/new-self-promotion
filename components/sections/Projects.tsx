@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { LottieDevelopment } from '@/components/ui/LottieDevelopment';
 import { getFeaturedProjects } from '@/data/projects';
 import { projectCategories } from '@/data/constants';
 import ProjectCard from './ProjectCard';
@@ -18,7 +19,7 @@ const Projects: React.FC = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* 标题区域 */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             精选项目
           </h2>
@@ -27,7 +28,7 @@ const Projects: React.FC = () => {
           </p>
 
           {/* 项目分类标签 */}
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
             {projectCategories.slice(0, 5).map((category) => (
               <button
                 key={category.id}
@@ -42,6 +43,25 @@ const Projects: React.FC = () => {
                 {category.name}
               </button>
             ))}
+          </div>
+        </div>
+
+        {/* Development Lottie 动画 */}
+        <div className="flex justify-center mb-12">
+          <div className="relative">
+            <LottieDevelopment
+              width={220}
+              height={220}
+              className="relative z-10"
+            />
+            {/* 装饰性背景 */}
+            <div className="absolute inset-0 flex items-center justify-center -z-10">
+              <div className="w-80 h-80 bg-gradient-to-r from-purple-600/10 to-indigo-600/10 rounded-full animate-pulse" />
+            </div>
+            {/* 装饰性元素 */}
+            <div className="absolute top-0 -left-3 w-4 h-4 bg-purple-500/40 rounded-full animate-pulse" />
+            <div className="absolute bottom-0 -right-3 w-3 h-3 bg-indigo-500/40 rounded-full animate-bounce" />
+            <div className="absolute -top-2 right-1/4 w-3 h-3 bg-violet-500/30 rounded-full animate-ping" />
           </div>
         </div>
 

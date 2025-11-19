@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Marquee from 'react-fast-marquee';
+import { LottieJS } from '@/components/ui/LottieJS';
 import { techStack } from '@/data/constants';
 import {
   Database,
@@ -34,13 +35,32 @@ const Skills: React.FC = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* 标题区域 */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             技术栈
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             掌握多种编程语言和开发框架，专注于全栈开发和AI应用
           </p>
+        </div>
+
+        {/* JavaScript Lottie 动画 */}
+        <div className="flex justify-center mb-12">
+          <div className="relative">
+            <LottieJS
+              width={180}
+              height={180}
+              className="relative z-10"
+            />
+            {/* 装饰性背景 */}
+            <div className="absolute inset-0 flex items-center justify-center -z-10">
+              <div className="w-64 h-64 bg-gradient-to-r from-yellow-600/10 to-orange-600/10 rounded-full animate-pulse" />
+            </div>
+            {/* 装饰性元素 */}
+            <div className="absolute top-0 -left-3 w-3 h-3 bg-yellow-500/40 rounded-full animate-pulse" />
+            <div className="absolute bottom-0 -right-3 w-3 h-3 bg-orange-500/40 rounded-full animate-bounce" />
+            <div className="absolute -top-2 right-1/4 w-2 h-2 bg-amber-500/30 rounded-full animate-ping" />
+          </div>
         </div>
 
         {/* 技术栈轮播 */}

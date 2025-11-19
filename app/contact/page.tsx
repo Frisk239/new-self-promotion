@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import TerminalCard from '@/components/ui/TerminalCard';
 import GlowCard from '@/components/ui/GlowCard';
+import { LottieContact } from '@/components/ui/LottieContact';
 import { personalInfo, socialLinks } from '@/data/constants';
 import { Mail, MessageCircle, MessageSquare, Github, MapPin } from 'lucide-react';
 
@@ -35,16 +36,33 @@ export default function Contact() {
             <h1 className="text-4xl md:text-6xl font-bold text-gradient mb-6">
               联系我
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
               有项目合作或技术交流的想法？欢迎随时联系我！
             </p>
+
+            {/* Contact Lottie 动画 */}
+            <div className="relative flex justify-center mb-8">
+              <LottieContact
+                width={250}
+                height={250}
+                className="relative z-10"
+              />
+              {/* 装饰性背景 */}
+              <div className="absolute inset-0 flex items-center justify-center -z-10">
+                <div className="w-80 h-80 bg-gradient-to-r from-green-600/10 to-blue-600/10 rounded-full animate-pulse" />
+              </div>
+              {/* 装饰性元素 */}
+              <div className="absolute top-0 -left-4 w-4 h-4 bg-green-500/40 rounded-full animate-pulse" />
+              <div className="absolute bottom-0 -right-4 w-3 h-3 bg-blue-500/40 rounded-full animate-bounce" />
+              <div className="absolute -top-2 right-1/4 w-3 h-3 bg-cyan-500/30 rounded-full animate-ping" />
+            </div>
           </div>
         </section>
 
         {/* 联系信息 */}
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-2">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-6">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 联系方式
               </h2>
